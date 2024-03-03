@@ -3,15 +3,19 @@ project(AP)
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(GTest_ROOT /opt/homebrew/opt/googletest)
 find_package(GTest REQUIRED)
 
 include_directories(include/)
+include_directories(/opt/homebrew/opt/googletest/include /opt/homebrew/opt/googletest)
 
 add_executable(main
         src/main.cpp
         src/unit_test.cpp
 )
 target_link_libraries(main
-        GTest::GTest
-        GTest::Main
+        /opt/homebrew/opt/googletest/lib/libgtest.a
+        /opt/homebrew/opt/googletest/lib/libgtest_main.a
+        /opt/homebrew/opt/googletest/lib/libgmock.a
+        /opt/homebrew/opt/googletest/lib/libgmock_main.a
 )
